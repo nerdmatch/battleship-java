@@ -136,7 +136,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		this.numbers = numbers;
 	}
 	/**
-	*
+	* sets number of hits to parameter of calling object
 	*
 	*
 	*/
