@@ -1,3 +1,4 @@
+import java.util.Arrays;
 /**
  * Represents <what is this class?> the properties of a single battleship.
  *
@@ -13,7 +14,7 @@
 //don't use  startx, starty, endX, endy as instance variables.
 
 - numbers [][] : int
-- boardStatus [][] : char                   //add boardStatus here
+- boardStatus [][] : char           //add boardStatus here
 - numberOfHits : int     // need a third instance variable
 - numberOfShipSpots : int
 -----------------------------------------
@@ -130,7 +131,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	/**
 	* sets numbers to parameter value of calling object
 	*
-	* @param
+	* @param int numbers representing the rows and columns on the game board
 	*/
 	public void setNumbers(int[][] numbers) {
 		this.numbers = numbers;
@@ -138,7 +139,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	/**
 	* sets number of hits to parameter of calling object
 	*
-	*
+	* @param int numberOfHits representing the number of times a ship that has been placed on the game board has been hit.
 	*/
 	public void setNumberOfHits(int numberOfHits) {
 		this.numberOfHits = numberOfHits;
@@ -146,7 +147,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	/**
 	* sets number of ship spots to parameter of calling object
 	*
-	*
+	* @param int numberOfShipSpots representing the number of coordinates on the game board that have been converted to shipPresent.
 	*/
 	public void setNumberOfShipSpots(int numberOfShipSpots) {
 		this.numberOfShipSpots = numberOfShipSpots;
@@ -157,7 +158,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 	public String toString()
 	{
-		return ; //come back to fix this later!!!
+		return "Numbers: " + this.numbers + "\nBoard Status: " + this.boardStatus + "\nNumber Of Hits: " + this.numberOfHits + "\nNumber Of Ship Spots: " + this.numberOfShipSpots; 
 	}
 
 	public boolean equals(Board other)
@@ -165,9 +166,12 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		return this.numbers.equals(other.numbers) && this.boardStatus.equals(other.boardStatus) && this.numberOfHits == other.numberOfHits && this.numberOfShipSpots == other.numberOfShipSpots;
 	}
 
-	void setAll()
+	public void setAll(int [][] numbers, char [][] boardStatus, int numberOfHits, int numberOfShipSpots) //Saw that using setAll with arrays required import java.util.Arrays and in the parameters for setAll (int [] array, IntUnaryOperator generator). That said, once I imported java.util.Arrays, adding in the square brackets in the header on their own got rid of the red lines, so I guess this is fine? link for source is: https://www.educative.io/edpresso/what-is-arrayssetall-in-java
 	{
-
+		this.numbers = numbers;
+		this.boardStatus = boardStatus;
+		this.numberOfHits = numberOfHits;
+		this.numberOfShipSpots = numberOfShipSpots;
 	}
 	/***** HELPER METHODS *****/
 

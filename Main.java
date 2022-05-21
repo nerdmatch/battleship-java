@@ -166,8 +166,12 @@ public class Main
 		System.out.println("Battleship Menu");
 		System.out.println("1. Display Player Board"); 
 		System.out.println("2. Place a Ship on Player Board");
-		System.out.println("3. Display Hitboard");
-		System.out.println("4. Quit");
+		System.out.println("3. Player Board Attempts to Hit Opponent Ship(s)");
+		System.out.println("4. Display Opponent Board");
+		System.out.println("5. Place a Ship on Opponent Board");
+		System.out.println("6. Opponent Board Attempt to Hit Player Ship(s)");
+		System.out.println("7. ()");
+		System.out.println("8. Quit");
 			
 		option = UtilityBelt.readInt("Please enter an option from the menu: ", 1, 4);
 		switch(option) 
@@ -176,7 +180,7 @@ public class Main
 				playerBoard.printBoard();
 				break;
 			case 2:
-				/*int lower = 0;
+				int lower = 0;
 				int upper = 9;
 
 		String prompt = "Please enter an x coordinate for the start of the ship: ";
@@ -186,16 +190,35 @@ public class Main
 		int startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
 		char endX = UtilityBelt.readChar(prompt, validChars);
 		int endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);
-				playerBoard.placeShip(startX, startY, endX, endY)*/
+				playerBoard.placeShip(startX, startY, endX, endY);
 				break;
 			case 3:
-				System.out.println();
+				opponentBoard.guessShipLocation();
 				break;
 			case 4:
-				System.exit(1);
+				opponentBoard.printBoard();
+				break;
 			case 5:
-				
-					
+				lower = 0;
+				upper = 9;
+
+		prompt = "Please enter an x coordinate for the start of the ship: ";
+		validChars = "A, B, C, D, E, F, G, H, I, J";
+
+		startX = UtilityBelt.readChar( prompt, validChars);
+		startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
+		endX = UtilityBelt.readChar(prompt, validChars);
+		endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);
+				opponentBoard.placeShip(startX, startY, endX, endY);
+				break;
+			case 6:
+				playerBoard.guessShipLocation();
+				break;	
+			case 7:
+				System.out.println();
+				break;
+			case 8:
+				System.exit(1);
 		}  
 	}
 	/*userInput = UtilityBelt.java; //Call the UtilityBelt.readInt Method.
