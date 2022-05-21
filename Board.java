@@ -1,15 +1,15 @@
 /**
  * Represents <what is this class?> the properties of a single battleship.
- * 
+ *
  * @author <name> Aaron Siegman
  *
  **/
 
 /* UML CLASS DIAGRAM:
 -----------------------------------------
-<class name> Board // Use Board 
+<class name> Board // Use Board
 -----------------------------------------
-<data, i.e. variables> 
+<data, i.e. variables>
 //don't use  startx, starty, endX, endy as instance variables.
 
 - numbers [][] : int
@@ -21,7 +21,7 @@
 
 + getNumbers() : int
 + getBoardStatus() : char
-+ getNumberOfHits() : int 
++ getNumberOfHits() : int
 + getNumberOfShipSpots() : int
 
 
@@ -31,7 +31,7 @@
 + setNumberOfShipSpots(numberOfShipSpots : int) : void
 
 
-+setAll(numbers : int, boardStatus: char, numberOfHits : int, numberOfShipSpots : int) 
++setAll(numbers : int, boardStatus: char, numberOfHits : int, numberOfShipSpots : int)
 -----------------------------------------
 */
 
@@ -66,7 +66,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	{
 		numbers = new int [10][10];
 		/*startX = ' ';
-		endX = ' ';		
+		endX = ' ';
 		startY = 0;
 		endY = 0;*/
 		boardStatus;
@@ -81,12 +81,12 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		this.boardStatus = boardStatus;
 		this.numberOfHits = numberOfHits;
 		this.numberOfShipSpots = numberOfShipSpots;
-		
+
 	}
 
 	/***** ACCESSORS *****/
 	/**
-	*Returns current status of the board 
+	*Returns current status of the board
 	*
 	*@return array representing the state of the board
 	*/
@@ -94,7 +94,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		return boardStatus;
 	}
 	/**
-	*Returns rows and columns for the game board 
+	*Returns rows and columns for the game board
 	*
 	*@return array representing the rows and columns of the game board
 	*/
@@ -102,7 +102,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		return numbers;
 	}
 	/**
-	*Returns the number of times hits have successfully landed 
+	*Returns the number of times hits have successfully landed
 	*
 	*@return int representing the amount of times a ship has been struck on either the player or opponenent board
 	*/
@@ -117,7 +117,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	public int getNumberOfShipSpots {
 		return numberOfShipSpots;
 	}
-	
+
 	/***** MUTATORS *****/
 	/**
 	* sets boardStatus to parameter value of calling object
@@ -130,7 +130,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	/**
 	* sets numbers to parameter value of calling object
 	*
-	* @param 
+	* @param
 	*/
 	public void setNumbers(int[][] numbers) {
 		this.numbers = numbers;
@@ -144,7 +144,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		this.numberOfHits = numberOfHits;
 	}
 	/**
-	*
+	* sets number of ship spots to parameter of calling object
 	*
 	*
 	*/
@@ -152,7 +152,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		this.numberOfShipSpots = numberOfShipSpots;
 	}
 
-	
+
 	/***** OTHER REQUIRED METHODS *****/
 
 	public String toString()
@@ -167,7 +167,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 	void setAll()
 	{
-		
+
 	}
 	/***** HELPER METHODS *****/
 
@@ -178,7 +178,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		System.out.println(" ");
 		for(int row = 0; row < numbers.length; row++)
 		{
-		//Go to OLI 
+		//Go to OLI
 			char letter = (char)(row + 'A');
 			System.out.print("row: " + letter + "\t");
 			for(int col = 0; col < numbers.length; col++)
@@ -189,8 +189,8 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 				char openWater = 'O'; //0 = Water
 				char shipPresent = 'P'; //1 = Ship Present
 				char shipHit = 'H'; //2 = Ship Hit
-				
-				
+
+
 				if (numbers[row][col] == 0)
 				{
 					System.out.print(openWater);
@@ -205,12 +205,12 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 				}
 				System.out.print(" ");
 			}
-			
+
 			System.out.println();
-		}	
-		
+		}
+
 	}
-	
+
 	public void fillBoard()
 	{
 		System.out.println("col:    0 1 2 3 4 5 6 7 8 9");
@@ -230,7 +230,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 			System.out.println();
 		}
 	}
-	
+
 	public void placeShip(char startX, int startY, char endX, int endY) //add parameters for startX and startY, and endX and endY
 	{
 		/*int lower = 0;
@@ -238,13 +238,13 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 		int letter = 0;
 		int number = 0;
-		
+
 		//String prompt = "Please enter an x coordinate for the start of the ship: ";
 		//String validChars = "A, B, C, D, E, F, G, H, I, J";
 
 		//replace with readString method, use charat to get row and column
-		
-		//char startX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars); 
+
+		//char startX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
 		//int startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
 		//char endX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
 		//int endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);
@@ -255,13 +255,13 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 			System.out.println("Error : either x coordinates or y cordinates must be equal to each other in order for a ship to be placed; retry.");
 			return;
 		}
-		
+
 		//convert char to int
 		letter = startX - 65; //represents place on board; new x coordinate
 		number = startY; // represents place on board; new y coordinate
 
 		numbers[letter][number] = 1; //shipPresent
-		
+
 		letter = endX - 65; //represents place on board; new x coordinate
 		number = endY; // represents place on board; new y coordinate
 		/*char openWater = 'O'; //0 = Water
@@ -272,7 +272,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 		fillShip(startX, endX, startY, endY);
 	}
-	
+
 		//fillShip(numbers, startX, endX, startY, endY);
 		//Create a loop where the start is (startX, startY) and it iterates through until it hits (endX, endY)
 	public void fillShip(char startX, char endX, int startY, int endY)
@@ -281,7 +281,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 		int shipLengthHorizontal = ((endY) - (startY)) + 1;
 		//System.out.print(shipLengthHorizontal + " " +  shipLengthVertical);
-		
+
 		if (shipLengthHorizontal > 2)
 		{
 			for (int i = 0; i < shipLengthHorizontal; i++)
@@ -293,7 +293,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		}
 		else if (shipLengthVertical > 2)
 		{
-			
+
 			for (int i = 0; i < shipLengthVertical; i++)
 			{
 				numbers[i][endY] = 1;
@@ -301,28 +301,28 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 			//NumberOfShipSpots += shipLengthVertical
 			numberOfShipSpots += shipLengthVertical;
 		}
-		
+
 	}
-	
+
 	public void guessShipLocation() //Methods cannot be static when using parameters; alter this for all methods.
 	{
 		int lower = 0;
 		int upper = 9;
 
 		int letter = 0;
-		int number = 0; 
-		
+		int number = 0;
+
 		String prompt = "Please enter an x coordinate for the start of the ship: ";
 		String validChars = "ABCDEFGHIJ";
-		
+
 		char guessX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
 		int guessY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
 
 		letter = guessX - 65; //represents place on board; new x coordinate
 		number = guessY; // represents place on board; new y coordinate
 
-		
-		
+
+
 		if (numbers[letter][number] == 1)  //shipPresent; converted O to P
 		{
 			numbers[letter][number] = numbers[letter][number] + 1; //or numbers[letter][number]++
@@ -333,10 +333,10 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		{
 			System.out.println("Miss!");
 		}
-		
-		
+
+
 	}
-	//printBoard(int[][]numbers, boolean enemy). If enemy, print 
+	//printBoard(int[][]numbers, boolean enemy). If enemy, print
 
 	//NumberOfShipSpots = total points for ships on the boards
 
@@ -349,5 +349,5 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 			return true;
 		}
 	}
-	
+
 }
