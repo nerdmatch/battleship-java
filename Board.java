@@ -68,8 +68,8 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		/*startX = ' ';
 		endX = ' ';
 		startY = 0;
-		endY = 0;*/
-		boardStatus;
+		endY = 0;
+		boardStatus;*/
 		numberOfHits = 0;
 		numberOfShipSpots = 0;
 		//numberOfShipSpots = 0;
@@ -114,7 +114,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	*
 	*@return int representing the spaces that have been converted from open water to ship present
 	*/
-	public int getNumberOfShipSpots {
+	public int getNumberOfShipSpots() {
 		return numberOfShipSpots;
 	}
 
@@ -344,9 +344,13 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 	public boolean checkIfWon()
 	{
-		if (numberOfHits = numberOfShipSpots)
+		if (numberOfHits == numberOfShipSpots) // or return (numberOfHits == numberOfShipSpots)
 		{
-			return true;
+			return true; 
+		}
+		else
+		{
+			return false;
 		}
 	}
 
