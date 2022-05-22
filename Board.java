@@ -326,7 +326,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 		if (shipLengthHorizontal > 2)
 		{
-			for (int i = 0; i < shipLengthHorizontal; i++)
+			for (int i = 0; i <= shipLengthHorizontal; i++)
 			{
 				numbers[endX - 65][i] = 1;
 			}
@@ -398,7 +398,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	{
 		if (numberOfHits == numberOfShipSpots) // or return (numberOfHits == numberOfShipSpots)
 		{
-			return true; 
+			return true;
 		}
 		else
 		{
