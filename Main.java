@@ -1,4 +1,3 @@
-import java.util.Scanner;
 /********************************************
 *	AUTHORS:	<your name> Aaron Siegman
 * COLLABORATORS: <name of peer, tutor, instructor>
@@ -14,9 +13,10 @@ import java.util.Scanner;
 *********************************************
 *	ALGORITHM:
 *	<Pseudocode here>
-*   1. 
-*	2.
-*	3.
+*   1. Create methods that correspond to how a game of Battleship is played (This would be the static methods listed below, as well as their non-static versions in Board.java)
+*	2. Set up a separate file in Java to construct the Board class. Within this class, create instance variables for the rows and columns of the game board, the game board in its initial state, tracking the number of times a ship was hit, and the number of coordinates on the board that are being occupied by ships. Include a constructor for these, as well as accessor, mutators, and the toString, equals(), and setAll methods.
+*	3. In Main.java, create two objects that use the board class, one for the player, and one for the opponent (this is how it is set up in this version. Alternatively, you could use the names Player1 and Player2, which might make more sense, depending on what you prefer.) Then use the fillBoard method with both board objects.
+*	4. Create a menu that goes through and allows the user to check what the board currently looks like, place ships, guess the location of ships, check if the win condition has been met, and exit out of the program.
 *********************************************
 *	STATIC METHODS:
 * <UML style list of static methods> 
@@ -25,13 +25,14 @@ import java.util.Scanner;
 	public static void placeShip()
 	public static void fillShip()
 	public static void guessShipLocation()
+	public static boolean checkIfWon() 
 *********************************************
 *	ALL IMPORTED PACKAGES NEEDED AND PURPOSE:
 *	<ex: Scanner= used for console input> 
 *********************************************/
 
 // <IMPORTS GO HERE>
-
+import java.util.Scanner;
 
 
 
@@ -157,11 +158,13 @@ public class Main
 
 	opponentBoard = new Board();
 
-	
+	playerBoard.fillBoard();
+
+	opponentBoard.fillBoard();
 	  
 	int option = 0;
 
-	while (option != 4)
+	while (option != 9)
 	{
 		System.out.println("Battleship Menu");
 		System.out.println("1. Display Player Board"); 
@@ -170,10 +173,11 @@ public class Main
 		System.out.println("4. Display Opponent Board");
 		System.out.println("5. Place a Ship on Opponent Board");
 		System.out.println("6. Opponent Board Attempt to Hit Player Ship(s)");
-		System.out.println("7. ()");
-		System.out.println("8. Quit");
+		System.out.println("7. Check if Player Board Won");
+		System.out.println("8. Check if Opponent Board Won");
+		System.out.println("9. Quit");
 			
-		option = UtilityBelt.readInt("Please enter an option from the menu: ", 1, 4);
+		option = UtilityBelt.readInt("Please enter an option from the menu: ", 1, 9);
 		switch(option) 
 		{
 			case 1:
@@ -215,9 +219,12 @@ public class Main
 				playerBoard.guessShipLocation();
 				break;	
 			case 7:
-				System.out.println();
+				opponentBoard.checkIfWon();
 				break;
 			case 8:
+				playerBoard.checkIfWon();
+				break;
+			case 9:
 				System.exit(1);
 		}  
 	}
@@ -468,7 +475,21 @@ public class Main
 
 
 
+	public static boolean checkIfWon()
+	{
+		int numberOfHits = 0;
+
+		int numberOfShipSpots = 0;
 		
+		if (numberOfHits == numberOfShipSpots) // or return (numberOfHits == numberOfShipSpots)
+		{
+			return true; 
+		}
+		else
+		{
+			return false;
+		}
+	}	
 	// public static void inputCoordinates(String prompt)
 	// {
 	// 	//replace with readString method, use charat to get row and column
@@ -483,26 +504,26 @@ public class Main
 	// 	*/
 
 
-	public static void interfaceMenu() //rename methods lowercase
-	{
-		System.out.println("Battleship Menu");
-		System.out.println("1. Display Hits and Misses");
-		System.out.println("2. Display Player Board");
-		System.out.println("3. Display Hitboard");
-		System.out.println("4. Quit");
+	// public static void interfaceMenu() //rename methods lowercase
+	// {
+	// 	System.out.println("Battleship Menu");
+	// 	System.out.println("1. Display Hits and Misses");
+	// 	System.out.println("2. Display Player Board");
+	// 	System.out.println("3. Display Hitboard");
+	// 	System.out.println("4. Quit");
 
-		System.out.println("Please select an option from the menu: ");
-		/*if (user_input == 1)
-		{
-			playerBoard.fillBoard(boardstatus);
-		}
-		if (user_input == 2)
-		{
+	// 	System.out.println("Please select an option from the menu: ");
+	// 	/*if (user_input == 1)
+	// 	{
+	// 		playerBoard.fillBoard(boardstatus);
+	// 	}
+	// 	if (user_input == 2)
+	// 	{
 			
-		}*/
+	// 	}*/
 
 		
-	}
+	//}
 }
 	
 
