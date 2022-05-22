@@ -147,23 +147,48 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 
 	/***** OTHER REQUIRED METHODS *****/
-
+	/**
+	* Convert Board into String representation of all data 
+	*
+	* @return String containing all of Board objects data, separated by newlines. No newline at end.
+	*/
 	public String toString()
 	{
 		return "Numbers: " + this.numbers + "\nBoard Status: " + this.boardStatus + "\nNumber Of Hits: " + this.numberOfHits + "\nNumber Of Ship Spots: " + this.numberOfShipSpots; 
 	}
-
+	/**
+	* Checking Board object equality (all instance variables), case-sensitive
+	*
+	* @param other Board object that is being compared against
+	*
+	* @return boolean representing equality of two objects, true if exactly the same (case-sensitive)
+	*/
 	public boolean equals(Board other)
 	{
 		return this.numbers.equals(other.numbers) && this.boardStatus.equals(other.boardStatus) && this.numberOfHits == other.numberOfHits && this.numberOfShipSpots == other.numberOfShipSpots;
 	}
-
+	/**
+	* Sets all instance variable data (4) at once.
+	*
+	* @param numbers rows and columns of game board
+	* @param boardStatus intial appearance of board 
+	* @param numberOfHits successful hits on opposing players' ships
+	* @param numberOfShipSpots coordinates on the game board that are taken up by any ships that have been placed.
+	*
+	* @return boolean that represents valid data (non-Strings only, which in this case is everything)
+	*/
 	public void setAll(int [][] numbers, char [][] boardStatus, int numberOfHits, int numberOfShipSpots) //Saw that using setAll with arrays required import java.util.Arrays and in the parameters for setAll (int [] array, IntUnaryOperator generator). That said, once I imported java.util.Arrays, adding in the square brackets in the header on their own got rid of the red lines, so I guess this is fine? link for source is: https://www.educative.io/edpresso/what-is-arrayssetall-in-java
 	{
+		//call void setters
 		this.numbers = numbers;
 		this.boardStatus = boardStatus;
 		this.numberOfHits = numberOfHits;
 		this.numberOfShipSpots = numberOfShipSpots;
+
+		//call boolean returning (error checking) setters
+		boolean combinedValid = this.setNumbers(numbers[][]) & this.setBoardStatus(boardStatus) & this.setNumberOfHits(numberOfHits) & this.setNumberOfShipSpots(numberOfShipSpots);
+
+		return combinedValid;
 	}
 	/***** HELPER METHODS *****/
 	/**
