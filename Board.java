@@ -177,7 +177,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	*
 	* @return boolean that represents valid data (non-Strings only, which in this case is everything)
 	*/
-	public void setAll(int [][] numbers, char [][] boardStatus, int numberOfHits, int numberOfShipSpots) //Saw that using setAll with arrays required import java.util.Arrays and in the parameters for setAll (int [] array, IntUnaryOperator generator). That said, once I imported java.util.Arrays, adding in the square brackets in the header on their own got rid of the red lines, so I guess this is fine? link for source is: https://www.educative.io/edpresso/what-is-arrayssetall-in-java
+	public void setAll(int [][] numbers, char [][] boardStatus, int numberOfHits, int numberOfShipSpots) //Saw that using setAll with arrays required import java.util.Arrays and in the parameters for setAll (int [] array, IntUnaryOperator generator). I couldn't figure out how to do that, and I kept getting error messages with my array instance variables, so I didn't use them in the boolean statement. link for source is: https://www.educative.io/edpresso/what-is-arrayssetall-in-java
 	{
 		//call void setters
 		this.numbers = numbers;
@@ -186,9 +186,9 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		this.numberOfShipSpots = numberOfShipSpots;
 
 		//call boolean returning (error checking) setters
-		boolean combinedValid = this.setNumbers(numbers[][]) & this.setBoardStatus(boardStatus) & this.setNumberOfHits(numberOfHits) & this.setNumberOfShipSpots(numberOfShipSpots);
+		// boolean combinedValid = this.numberOfHits(numberOfHits) & this.setNumberOfShipSpots(numberOfShipSpots);
 
-		return combinedValid;
+		// return combinedValid;
 	}
 	/***** HELPER METHODS *****/
 	/**
@@ -268,21 +268,21 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	*/
 	public void placeShip(char startX, int startY, char endX, int endY) //add parameters for startX and startY, and endX and endY
 	{
-		/*int lower = 0;
-		int upper = 9;*/
+		// int lower = 0;
+		// int upper = 9;
 
 		int letter = 0;
 		int number = 0;
 
-		//String prompt = "Please enter an x coordinate for the start of the ship: ";
-		//String validChars = "A, B, C, D, E, F, G, H, I, J";
+	// 	String prompt = "Please enter an x coordinate for the start of the ship: ";
+	// 	String validChars = "A, B, C, D, E, F, G, H, I, J";
 
-		//replace with readString method, use charat to get row and column
+	// 	/*replace with readString method, use charat to get row and column*/
 
-		//char startX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
-		//int startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
-		//char endX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
-		//int endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);
+	// /*char*/startX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
+	// /*int*/	startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
+	// /*char*/endX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
+	//  /*int*/ endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);
 
 		//error check for ship placement; one must be purely horizontal or purely vertical
 		if (!(startX == endX || startY == endY))

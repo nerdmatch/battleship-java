@@ -367,6 +367,11 @@ public class Main
 	//game.print();
 
 	//In main placeShip();
+	//Description: placeShip takes in the multidimensional array numbers and converts two open water 'O' coordinates to ship present 'P' on the game board
+	//Precondition: @param int numbers which represent the rows and columns of the game board
+	//Postcondition: Two of the 'O' characters on the game board will be replaced by two 'P' characters, depending upon user input. This can be visualized by invoking the printBoard method.
+	//fillboard method that fills with openWater char
+	//fillboard method that fills with openWater char
 	public static void placeShip(int[][]numbers)
 	{
 		int lower = 0;
@@ -416,6 +421,10 @@ public class Main
 	//Pseudocode for filling in between start of ship and end of ship
 //Make a variable for shipLength, construct a for loop that iterates through the spaces between the start and end coordinates of the ship, and have something that allows for the program to fill in the ship effectively regardless of the ship's orientation. 
 
+	//Description: fillShip takes in the multidimensional array numbers and prints the current state of the game board
+	//Precondition: @param int numbers which represent the rows and columns of the game board, @param char startX which represents the x coordinate of the start of the ship, @param int startY which represents the y coordinate at the start of the ship, @param char endX which represents the x coordinate for the end of the ship and @param int endY which represents the y coordinate for the end of the ship
+	//Postcondition: @return prints the game board with any additional updates/changes out onto the console.
+	//fillboard method that fills with openWater char
 	public static void fillShip(int[][]numbers, char startX, char endX, int startY, int endY)
 	{
 		int shipLengthVertical = ((endX - 65) - (startX - 65)) + 1;
@@ -441,9 +450,9 @@ public class Main
 	}
 
 
-	//Pseudocode for guessing ship location
-//Use the 
-
+	//Description: guessShipLocation takes in the multidimensional array numbers and uses user input to determine whether they guessed the position of an opponent player's ship correctly
+	//Precondition: @param int numbers which represent the rows and columns of the game board
+	//Postcondition: Converts 'P' to 'H' if guess was correct, and prints the message "Ship was hit!" in the console. If guess was incorrect, prints the message "Miss!" in the console.
 	public static void guessShipLocation(int[][]numbers)
 	{
 		int lower = 0;
@@ -476,7 +485,9 @@ public class Main
 	}
 
 
-
+	//Description: checkIfWon compares the number of hits to the number of ship spots and returns either true if the values are equal, or false if they are not equal to each other.
+	//Precondition: N/A
+	//Postcondition: @returns true if numberOfHits == numberOfShipSpots, if not, returns false.
 	public static boolean checkIfWon()
 	{
 		int numberOfHits = 0;
