@@ -42,10 +42,6 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 	/***** INSTANCE VARIABLES *****/
 	private int[][]numbers;
-	/*char startX;
-	char endX;
-	int startY;
-	int endY;*/
 	private char [][] boardStatus = {
 			{'O','O','O','O','O','O','O','O','O','O'},
 			{'O','O','O','O','O','O','O','O','O','O'},
@@ -66,14 +62,10 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	public Board()
 	{
 		numbers = new int [10][10];
-		/*startX = ' ';
-		endX = ' ';
-		startY = 0;
-		endY = 0;
-		boardStatus;*/
+		/*boardStatus;*/
 		numberOfHits = 0;
 		numberOfShipSpots = 0;
-		//numberOfShipSpots = 0;
+		
 	}
 
 	public Board(int[][]numbers, char[][]boardStatus, int numberOfHits, int numberOfShipSpots)
@@ -174,7 +166,11 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		this.numberOfShipSpots = numberOfShipSpots;
 	}
 	/***** HELPER METHODS *****/
-
+	/**
+	* Prints the game board with any alterations that have been made by the player
+	*
+	* Displays the board in the console with any alterations made by other methods such as placeShip, fillShip, and guessShipLocation.
+	*/
 	public void printBoard()
 	{
 		//print 0 through 9 separated by a space
@@ -214,7 +210,11 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		}
 
 	}
-
+	/**
+	* Prints the game board in its initial state without any alterations made by the player.
+	*
+	* Displays the board in the console with only the character for open water, 'O', in each coordinate position.
+	*/
 	public void fillBoard()
 	{
 		System.out.println("col:    0 1 2 3 4 5 6 7 8 9");
@@ -234,7 +234,13 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 			System.out.println();
 		}
 	}
-
+	/**
+	* Places ships in the starting and ending coordinates as dicatated by user input.
+	*
+	* Parameters used are startX, a char, startY, an int, endX, a char, and endY, an int. These represent the horizontal and vertical values for the start and end points.
+	*
+	* Converts the open water char 'O' to the ship present char 'P', indicating that a ship, or part of a ship, is occupying that coordinate.
+	*/
 	public void placeShip(char startX, int startY, char endX, int endY) //add parameters for startX and startY, and endX and endY
 	{
 		/*int lower = 0;
@@ -279,6 +285,13 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 		//fillShip(numbers, startX, endX, startY, endY);
 		//Create a loop where the start is (startX, startY) and it iterates through until it hits (endX, endY)
+	/**
+	* Fills in the open water coordinates between starting and ending coordinates for ships placed with  ships in the starting and ending coordinates as dicatated by user input.
+	*
+	* Parameters used are startX, a char, startY, an int, endX, a char, and endY, an int. These represent the horizontal and vertical values for the start and end points.
+	*
+	* Converts any open water char 'O' between the starting and ending points of the ship to the ship present char 'P', indicating that a ship, or part of a ship, is occupying that coordinate.
+	*/
 	public void fillShip(char startX, char endX, int startY, int endY)
 	{
 		int shipLengthVertical = ((endX - 65) - (startX - 65)) + 1;
@@ -307,7 +320,13 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		}
 
 	}
-
+ 	/**
+	* Simulates a player's ship being attacked by another player. The character for ship present, 'P', is converted to the character for ship hit, 'H', if one player correctly guesses the position of another players ship.
+	*
+	* User enter a char for the X value and an int for the Y value of the coordinate they believe a ship to be at.
+	*
+	* Converts the character for ship present, 'P', is converted to the character for ship hit, 'H', and displays a message indicating that a ship has been hit in the console when a player's guess for a ship occupied coordinate is correct. Otherwise, the coordinate guessed does not change and a message indicating that the attack failed is displayed in the console.
+	*/
 	public void guessShipLocation() //Methods cannot be static when using parameters; alter this for all methods.
 	{
 		int lower = 0;
@@ -345,7 +364,11 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	//NumberOfShipSpots = total points for ships on the boards
 
 	//Add checkIfWon method that returns a boolean which would be the number of hits = number of ship spots.
-
+	/**
+	* Method that checks whether one board has had all ship present coordinates coverted to ship hit coordinates.
+	*
+	* @returns a boolean statement for true when the number of hits is equal to the number of ship spots, thereby indcating victory for a player. Otherwise it returns false, and the game continues.
+	*/
 	public boolean checkIfWon()
 	{
 		if (numberOfHits == numberOfShipSpots) // or return (numberOfHits == numberOfShipSpots)

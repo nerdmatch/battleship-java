@@ -1,7 +1,7 @@
 /********************************************
 *	AUTHORS:	<your name> Aaron Siegman
 * COLLABORATORS: <name of peer, tutor, instructor>
-*	LAST MODIFIED:	<date of last change> 5/12/2022
+*	LAST MODIFIED:	<date of last change> 5/21/2022
 ********************************************/
 
 /********************************************
@@ -286,9 +286,9 @@ public class Main
   }//end of class
 	
   /***** STATIC METHODS *****/
-	//Description: printBoard takes in the multidimensional array numbers and 
-	//Precondition: @param 
-	//Postcondition: 
+	//Description: printBoard takes in the multidimensional array numbers and prints the current state of the game board
+	//Precondition: @param int numbers which represent the rows and columns of the game board
+	//Postcondition: @return prints the game board with any additional updates/changes out onto the console.
 	public static void printBoard(int[][]numbers)
 	{
 		//print 0 through 9 separated by a space
@@ -328,7 +328,9 @@ public class Main
 		}	
 		
 	}
-	
+	//Description: fillBoard takes in the multidimensional array numbers and prints the current state of the game board
+	//Precondition: @param int numbers which represent the rows and columns of the game board
+	//Postcondition: @return prints the game board with any additional updates/changes out onto the console.
 	//fillboard method that fills with openWater char
 	public static void fillBoard(char[][]numbers)
 	{
