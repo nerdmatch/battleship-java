@@ -339,7 +339,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 			for (int i = 0; i < shipLengthVertical; i++)
 			{
-				System.out.print("veritcal: " + i + "," + endY);
+				System.out.print("vertical: " + i + "," + endY);
 				numbers[(startX - 65) + i][endY] = 1;
 			}
 			//NumberOfShipSpots += shipLengthVertical
