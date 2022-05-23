@@ -65,7 +65,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 		/*boardStatus;*/
 		numberOfHits = 0;
 		numberOfShipSpots = 0;
-		
+
 	}
 
 	public Board(int[][]numbers, char[][]boardStatus, int numberOfHits, int numberOfShipSpots)
@@ -148,13 +148,13 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 	/***** OTHER REQUIRED METHODS *****/
 	/**
-	* Convert Board into String representation of all data 
+	* Convert Board into String representation of all data
 	*
 	* @return String containing all of Board objects data, separated by newlines. No newline at end.
 	*/
 	public String toString()
 	{
-		return "Numbers: " + this.numbers + "\nBoard Status: " + this.boardStatus + "\nNumber Of Hits: " + this.numberOfHits + "\nNumber Of Ship Spots: " + this.numberOfShipSpots; 
+		return "Numbers: " + this.numbers + "\nBoard Status: " + this.boardStatus + "\nNumber Of Hits: " + this.numberOfHits + "\nNumber Of Ship Spots: " + this.numberOfShipSpots;
 	}
 	/**
 	* Checking Board object equality (all instance variables), case-sensitive
@@ -171,7 +171,7 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 	* Sets all instance variable data (4) at once.
 	*
 	* @param numbers rows and columns of game board
-	* @param boardStatus intial appearance of board 
+	* @param boardStatus intial appearance of board
 	* @param numberOfHits successful hits on opposing players' ships
 	* @param numberOfShipSpots coordinates on the game board that are taken up by any ships that have been placed.
 	*
@@ -326,9 +326,10 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 		if (shipLengthHorizontal > 2)
 		{
-			for (int i = 0; i <= shipLengthHorizontal; i++)
+			for (int i = 0; i < shipLengthHorizontal; i++)
 			{
-				numbers[endX - 65][i] = 1;
+				System.out.println("horizontal: " + (endX - 65) + "," + (startY + i));
+				numbers[endX - 65][startY + i] = 1;
 			}
 			//NumberOfShipSpots += shipLengthHorizontal
 			numberOfShipSpots += shipLengthHorizontal;
@@ -338,7 +339,8 @@ public class Board // Board //TODO: don't forget to rename here and rename the f
 
 			for (int i = 0; i < shipLengthVertical; i++)
 			{
-				numbers[i][endY] = 1;
+				System.out.print("veritcal: " + i + "," + endY);
+				numbers[(startX - 65) + i][endY] = 1;
 			}
 			//NumberOfShipSpots += shipLengthVertical
 			numberOfShipSpots += shipLengthVertical;

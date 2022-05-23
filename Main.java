@@ -19,16 +19,16 @@
 *	4. Create a menu that goes through and allows the user to check what the board currently looks like, place ships, guess the location of ships, check if the win condition has been met, and exit out of the program.
 *********************************************
 *	STATIC METHODS:
-* <UML style list of static methods> 
+* <UML style list of static methods>
 	public static void printBoard()
 	public static void fillBoard(char boardStatus[][])
 	public static void placeShip()
 	public static void fillShip()
 	public static void guessShipLocation()
-	public static boolean checkIfWon() 
+	public static boolean checkIfWon()
 *********************************************
 *	ALL IMPORTED PACKAGES NEEDED AND PURPOSE:
-*	<ex: Scanner= used for console input> 
+*	<ex: Scanner= used for console input>
 *********************************************/
 
 // <IMPORTS GO HERE>
@@ -39,14 +39,14 @@ import java.util.Scanner;
 
 
 
-public class Main 
+public class Main
 {
-	
+
   /***** CONSTANT SECTION *****/
 
- //char openWater 
+ //char openWater
 
-	
+
   public static void main(String[] args)
   {
     /***** DECLARATION SECTION *****/
@@ -71,7 +71,7 @@ public class Main
 		};*/
 
 	/*fillBoard(boardStatus);*/
-	  
+
 	//Columns:  0  1  2  3  4  5  6  7  8  9
 	//  Row A: [1][2][3][4][5][6][7][8][9][10]
 	//  Row B: [1][2][3][4][5][6][7][8][9][10]
@@ -88,12 +88,12 @@ public class Main
 
 	//int counter = 1;
 
-	//don't need counter; 
+	//don't need counter;
 	//refer to lab that converts ascii code(letters) to numbers
-	
+
 	/*for(int row = 0; row < numbers.length; row++)
 	{
-		//Go to OLI 
+		//Go to OLI
 		char letter = (char)(row + 'A');
 		System.out.println("row: " + letter);
 		for(int col = 0; col < numbers.length; col++)
@@ -105,40 +105,40 @@ public class Main
 		}
 	}
 	*/
-	
+
 
 //Algorithm for Placing one ship (possible method)
-	//Input one sets of coordinates (one int, one int or char) start of ship 
-	//Input one sets of coordinates (one int, one int or char) end of ship 
+	//Input one sets of coordinates (one int, one int or char) start of ship
+	//Input one sets of coordinates (one int, one int or char) end of ship
 	//Use utilityBelt for user inputs (use four times)
 	//Use three chars for whether a ship is there, a ship is hit, or openwater.
 	// int lower = 1;
 	// int upper = 10;
 
-	  
+
 	//UtilityBelt.readInt("Please enter an x coordinate for the start of the ship", lower, upper);
 	//UtilityBelt.readChar(String prompt, String validChars)
 
 	/*String prompt = "Please enter an x coordinate for the start of the ship: ";
 	String validChars = "A, B, C, D, E, F, G, H, I, J";
-	  
+
 	char startX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ", prompt, validChars);
 	int startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
 	char endX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ", prompt, validChars);
 	int endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);*/
 
 	// placeShip(numbers); //loop function call to place multiple ships
-	  
+
 	//char shipPresent = '';
 	//char shipHit = '';
 	//char openWater = '';
 
 //fill with the openwater char, then check to see if it is there by printing it (dynamic array method = loops; refer to module 13, 14)
 
-	// printBoard(numbers); //Could potentially wrap 
+	// printBoard(numbers); //Could potentially wrap
 
 	  //////////////////////////////////////////////////// Write function that denotes sinkingopponentBoard.printBoard();System.out.println("Destroyer has sunk");//pseudocode /* *  * Inside ship declaration function placeShip() *  *  * force user to declare variable in order *  *  * Prompts: * Please place your cruiser: * a12, a13,a14 * This is a valid placement*  * please place your sub: * b13, b14,b15 * if (length = 3){Call this cruiser}if (length = 3){Call this sub}In reality:Order of Events:>Show board status>Print Empty board player/opp>Line Prompt saying what ship to fill in>PlaceShip(Number[][], shipName) into FillShip();>Invalid/valid ship placement function isValid() this is according to whatever ship its on ***>PlaceValidShip>Clear Screen with questionable ASCII (look up console clear screen for java) ***>Lineprompt to let opponent fill board>Do same for Opponent>>Game starts~1.5-2hr approx>>>InterfaceUser Input: (1-3)if 1 PrintHitScreenBoard (Top Board in battleship)2 ViewOwnBoard (To see your own board)3 HitBoard-1 Sentinel (if you really want to kill program early)If User =3 >>Declare hit values>GuessShipLocation()>Clearscreen>Pass to opponent>>Add function to detect that all ships are sunk ***>>Victory statement>>User prompt for Replay or quit if Quit, kill programreplay start fresh.~30 minutes to code
-	  
+
 	// guessShipLocation(numbers);
 	/*System.out.println("Battleship Menu");
 	System.out.println("1. Display Hits and Misses");
@@ -161,13 +161,13 @@ public class Main
 	playerBoard.fillBoard();
 
 	opponentBoard.fillBoard();
-	  
+
 	int option = 0;
 
 	while (option != 9)
 	{
 		System.out.println("Battleship Menu");
-		System.out.println("1. Display Player Board"); 
+		System.out.println("1. Display Player Board");
 		System.out.println("2. Place a Ship on Player Board");
 		System.out.println("3. Player Board Attempts to Hit Opponent Ship(s)");
 		System.out.println("4. Display Opponent Board");
@@ -176,9 +176,9 @@ public class Main
 		System.out.println("7. Check if Player Board Won");
 		System.out.println("8. Check if Opponent Board Won");
 		System.out.println("9. Quit");
-			
+
 		option = UtilityBelt.readInt("Please enter an option from the menu: ", 1, 9);
-		switch(option) 
+		switch(option)
 		{
 			case 1:
 				playerBoard.printBoard();
@@ -187,12 +187,13 @@ public class Main
 				int lower = 0;
 				int upper = 9;
 
-		String prompt = "Please enter an x coordinate for the start of the ship: ";
+		String startPrompt = "Please enter an x coordinate for the start of the ship: ";
+		String endPrompt = "Please enter an x coordinate for the end of the ship: ";
 		String validChars = "A, B, C, D, E, F, G, H, I, J";
 
-		char startX = UtilityBelt.readChar( prompt, validChars);
+		char startX = UtilityBelt.readChar( startPrompt, validChars);
 		int startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
-		char endX = UtilityBelt.readChar(prompt, validChars);
+		char endX = UtilityBelt.readChar(endPrompt, validChars);
 		int endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);
 				playerBoard.placeShip(startX, startY, endX, endY);
 				break;
@@ -206,18 +207,19 @@ public class Main
 				lower = 0;
 				upper = 9;
 
-		prompt = "Please enter an x coordinate for the start of the ship: ";
+		startPrompt = "Please enter an x coordinate for the start of the ship: ";
+		endPrompt = "Please enter an x coordinate for the end of the ship: ";
 		validChars = "A, B, C, D, E, F, G, H, I, J";
 
-		startX = UtilityBelt.readChar( prompt, validChars);
+		startX = UtilityBelt.readChar( startPrompt, validChars);
 		startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
-		endX = UtilityBelt.readChar(prompt, validChars);
+		endX = UtilityBelt.readChar(endPrompt, validChars);
 		endY = UtilityBelt.readInt("Please enter an y coordinate for the end of the ship: ", lower, upper);
 				opponentBoard.placeShip(startX, startY, endX, endY);
 				break;
 			case 6:
 				playerBoard.guessShipLocation();
-				break;	
+				break;
 			case 7:
 				opponentBoard.checkIfWon();
 				break;
@@ -226,12 +228,12 @@ public class Main
 				break;
 			case 9:
 				System.exit(1);
-		}  
+		}
 	}
 	/*userInput = UtilityBelt.java; //Call the UtilityBelt.readInt Method.
-	  
+
 	System.out.println("Please select an option from the menu: ");
-	if (userInput == 1) 
+	if (userInput == 1)
 	{
 		fillBoard(boardstatus);
 	}
@@ -239,7 +241,7 @@ public class Main
 	// printBoard(numbers);
 	//fillBoard(boardStatus);
 
-	//Board playerBoard, opponentBoard; 
+	//Board playerBoard, opponentBoard;
 
 	//playerBoard = new Board();
 
@@ -250,11 +252,11 @@ public class Main
 	//opponentBoard.printBoard();
 
 	//playerBoard.
-	  
+
 	/*public static void main(String[] args)
 		{
 			while (!menu.equals("quit"))
-			{				
+			{
 				//read menu item from user (do you want to place a ship or attempt to hit a ship?)
 				printmenu
 				hitboard
@@ -264,17 +266,17 @@ public class Main
 		}
 
 */
-	  
+
 	//if (row = )
 	//{
-			
-	//}  
 
-	
+	//}
+
+
 //first fill the array, then print the array
 //convert filling the array and printing array into methods
 //get one user input to place a ship
-	  
+
     /***** INTRO SECTION *****/
 
     /***** INPUT SECTION *****/
@@ -282,9 +284,9 @@ public class Main
     /***** PROCESSING SECTION *****/
 
     /***** OUTPUT SECTION *****/
-  userInput.close();  
+  userInput.close();
   }//end of class
-	
+
   /***** STATIC METHODS *****/
 	//Description: printBoard takes in the multidimensional array numbers and prints the current state of the game board
 	//Precondition: @param int numbers which represent the rows and columns of the game board
@@ -296,7 +298,7 @@ public class Main
 		System.out.println(" ");
 		for(int row = 0; row < numbers.length; row++)
 		{
-		//Go to OLI 
+		//Go to OLI
 			char letter = (char)(row + 'A');
 			System.out.print("row: " + letter + "\t");
 			for(int col = 0; col < numbers.length; col++)
@@ -307,8 +309,8 @@ public class Main
 				char openWater = 'O'; //0 = Water
 				char shipPresent = 'P'; //1 = Ship Present
 				char shipHit = 'H'; //2 = Ship Hit
-				
-				
+
+
 				if (numbers[row][col] == 0)
 				{
 					System.out.print(openWater);
@@ -323,10 +325,10 @@ public class Main
 				}
 				System.out.print(" ");
 			}
-			
+
 			System.out.println();
-		}	
-		
+		}
+
 	}
 	//Description: fillBoard takes in the multidimensional array numbers and prints the current state of the game board
 	//Precondition: @param int numbers which represent the rows and columns of the game board
@@ -351,7 +353,7 @@ public class Main
 			System.out.println();
 		}
 	}
-	
+
 	//placeship method that uses user input coordinates and then places the characters showing the ship' presence on the board.
 
 	//prompt
@@ -379,7 +381,7 @@ public class Main
 
 		int letter = 0;
 		int number = 0;
-		
+
 		String promptX1 = "Please enter an x coordinate for the start of the ship: ";
 		String promptY1 = "Please enter an y coordinate for the start of the ship: ";
 		String promptX2 = "Please enter an x coordinate for the end of the ship: ";
@@ -387,7 +389,7 @@ public class Main
 		String validChars = "A, B, C, D, E, F, G, H, I, J";
 
 		//replace with readString method, use charat to get row and column
-		
+
 		char startX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ promptX1, validChars);
 		int startY = UtilityBelt.readInt(/*"Please enter an y coordinate for the start of the ship: ",*/promptY1, lower, upper);
 		char endX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ promptX2, validChars);
@@ -399,13 +401,13 @@ public class Main
 			System.out.println("Error : either x coordinates or y cordinates must be equal to each other in order for a ship to be placed; retry.");
 			return;
 		}
-		
+
 		//convert char to int
 		letter = startX - 65; //represents place on board; new x coordinate
 		number = startY; // represents place on board; new y coordinate
 
 		numbers[letter][number] = 1; //shipPresent
-		
+
 		letter = endX - 65; //represents place on board; new x coordinate
 		number = endY; // represents place on board; new y coordinate
 		/*char openWater = 'O'; //0 = Water
@@ -419,7 +421,7 @@ public class Main
 	}
 
 	//Pseudocode for filling in between start of ship and end of ship
-//Make a variable for shipLength, construct a for loop that iterates through the spaces between the start and end coordinates of the ship, and have something that allows for the program to fill in the ship effectively regardless of the ship's orientation. 
+//Make a variable for shipLength, construct a for loop that iterates through the spaces between the start and end coordinates of the ship, and have something that allows for the program to fill in the ship effectively regardless of the ship's orientation.
 
 	//Description: fillShip takes in the multidimensional array numbers and prints the current state of the game board
 	//Precondition: @param int numbers which represent the rows and columns of the game board, @param char startX which represents the x coordinate of the start of the ship, @param int startY which represents the y coordinate at the start of the ship, @param char endX which represents the x coordinate for the end of the ship and @param int endY which represents the y coordinate for the end of the ship
@@ -436,17 +438,17 @@ public class Main
 			for (int i = 0; i < shipLengthHorizontal; i++)
 			{
 				numbers[endX - 65][i] = 1;
-			}	
+			}
 		}
 		else if (shipLengthVertical > 2)
 		{
-			
+
 			for (int i = 0; i < shipLengthVertical; i++)
 			{
 				numbers[i][endY] = 1;
 			}
 		}
-		
+
 	}
 
 
@@ -459,29 +461,29 @@ public class Main
 		int upper = 9;
 
 		int letter = 0;
-		int number = 0; 
-		
+		int number = 0;
+
 		String prompt = "Please enter an x coordinate for the start of the ship: ";
 		String validChars = "A, B, C, D, E, F, G, H, I, J";
-		
+
 		char guessX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
 		int guessY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
 
 		letter = guessX - 65; //represents place on board; new x coordinate
 		number = guessY; // represents place on board; new y coordinate
-		
+
 		if (numbers[letter][number] == 1)  //shipPresent; converted O to P
 		{
 			numbers[letter][number] = numbers[letter][number] + 1; //or numbers[letter][number]++
 			System.out.println("Ship was hit!");
-			
+
 		}
 		else
 		{
 			System.out.println("Miss!");
 		}
-		
-		
+
+
 	}
 
 
@@ -493,21 +495,21 @@ public class Main
 		int numberOfHits = 0;
 
 		int numberOfShipSpots = 0;
-		
+
 		if (numberOfHits == numberOfShipSpots) // or return (numberOfHits == numberOfShipSpots)
 		{
-			return true; 
+			return true;
 		}
 		else
 		{
 			return false;
 		}
-	}	
+	}
 	// public static void inputCoordinates(String prompt)
 	// {
 	// 	//replace with readString method, use charat to get row and column
-		
-		
+
+
 	// 	char startX = UtilityBelt.readString(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, lower, upper);
 	// 	int startY = UtilityBelt.readInt("Please enter an y coordinate for the start of the ship: ", lower, upper);
 	// 	char endX = UtilityBelt.readChar(/*"Please enter an x coordinate for the start of the ship: ",*/ prompt, validChars);
@@ -532,19 +534,19 @@ public class Main
 	// 	}
 	// 	if (user_input == 2)
 	// 	{
-			
+
 	// 	}*/
 
-		
+
 	//}
 }
-	
-
-	
 
 
-//make a board class, use setters to set ship at a certain spot, getters to get a certain location, setall to set all of the openwater places on the board. Put code for placing and filling in ship in this class. 
+
+
+
+//make a board class, use setters to set ship at a certain spot, getters to get a certain location, setall to set all of the openwater places on the board. Put code for placing and filling in ship in this class.
 
 //Create two board objects, one that is the player board and one that is the opponent board. Create a print method that prints the board for the player, and a print method for the opponent, which would print everything except the ships. Still print literals for openwater, hits and misses, but not the ships.
-	
+
 //System.cls
